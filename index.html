@@ -26,6 +26,7 @@
 
     .sidebar {
       width: 250px;
+      flex-shrink: 0;
       background: #111a2b;
       padding: 24px 16px;
       border-right: 1px solid #253149;
@@ -52,10 +53,12 @@
     }
 
     .nav-item {
+      display: block;
       padding: 12px;
       margin: 5px 0;
       border-radius: 8px;
       color: #c9d4e7;
+      text-decoration: none;
       cursor: pointer;
     }
 
@@ -124,17 +127,20 @@
 
     .section-title {
       font-size: 20px;
-      margin: 24px 0 14px;
+      margin: 30px 0 14px;
     }
 
-    .chat {
+    .chat,
+    .calculator {
       background: #131e31;
       border: 1px solid #26354e;
       border-radius: 14px;
       overflow: hidden;
+      margin-bottom: 28px;
     }
 
-    .chat-header {
+    .chat-header,
+    .calculator-header {
       padding: 16px;
       border-bottom: 1px solid #26354e;
       font-weight: bold;
@@ -142,7 +148,7 @@
 
     .messages {
       padding: 20px;
-      min-height: 180px;
+      min-height: 150px;
     }
 
     .message {
@@ -165,10 +171,11 @@
       border-top: 1px solid #26354e;
     }
 
-    input {
-      flex: 1;
+    input,
+    select {
+      width: 100%;
       min-width: 0;
-      padding: 14px;
+      padding: 13px;
       border: 1px solid #35445d;
       border-radius: 9px;
       background: #0b1120;
@@ -179,7 +186,7 @@
     button {
       border: none;
       border-radius: 9px;
-      padding: 14px 20px;
+      padding: 13px 20px;
       background: #54d6a0;
       color: #07140e;
       font-weight: bold;
@@ -188,6 +195,74 @@
 
     button:hover {
       background: #3ec38b;
+    }
+
+    .calculator-body {
+      padding: 20px;
+    }
+
+    .calc-description {
+      color: #94a5bf;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #c9d4e7;
+    }
+
+    .calc-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .reset-button {
+      background: #26354e;
+      color: #e8edf7;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 20px;
+      background: #102c26;
+      border: 1px solid #28684f;
+      border-radius: 12px;
+    }
+
+    .result h3 {
+      color: #54d6a0;
+      margin-bottom: 12px;
+    }
+
+    .result-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 8px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .result p {
+      color: #b7c8d8;
+      line-height: 1.6;
+    }
+
+    .error {
+      color: #ff8c8c;
+      margin-top: 12px;
+      display: none;
     }
 
     .footer {
@@ -235,8 +310,12 @@
         flex-direction: column;
       }
 
-      button {
+      .input-area button {
         width: 100%;
+      }
+
+      .calc-buttons button {
+        flex: 1;
       }
     }
   </style>
@@ -250,10 +329,10 @@
       <div class="subtitle">Civil Engineering Intelligence</div>
 
       <div class="nav-title">Workspace</div>
-      <div class="nav-item active">🏠 Dashboard</div>
-      <div class="nav-item">🤖 Engineering AI</div>
-      <div class="nav-item">📐 Calculators</div>
-      <div class="nav-item">📄 Engineering Reports</div>
+      <a class="nav-item active" href="#dashboard">🏠 Dashboard</a>
+      <a class="nav-item" href="#assistant">🤖 Engineering AI</a>
+      <a class="nav-item" href="#calculators">📐 Calculators</a>
+      <a class="nav-item" href="#reports">📄 Engineering Reports</a>
 
       <div class="nav-title">Engineering Domains</div>
       <div class="nav-item">🏗️ Structural Engineering</div>
@@ -265,74 +344,221 @@
     </aside>
 
     <main class="main">
+
       <div class="topbar">
         <strong>Engineering Workspace</strong>
         <span class="status">● Prototype Online</span>
       </div>
 
-      <h1>Welcome to KENNYVORA</h1>
+      <section id="dashboard">
+        <h1>Welcome to KENNYVORA</h1>
 
-      <p class="intro">
-        Your AI-powered civil engineering workspace.
-        Learn concepts, explore engineering calculations,
-        and organize construction knowledge in one place.
-      </p>
+        <p class="intro">
+          Your AI-powered civil engineering workspace.
+          Learn concepts, explore engineering calculations,
+          and organize construction knowledge in one place.
+        </p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>🤖 AI Engineering Assistant</h3>
-          <p>Ask civil engineering questions and explore technical concepts.</p>
-        </div>
+        <div class="cards">
+          <div class="card">
+            <h3>🤖 AI Engineering Assistant</h3>
+            <p>Ask civil engineering questions and explore technical concepts.</p>
+          </div>
 
-        <div class="card">
-          <h3>📐 Engineering Calculators</h3>
-          <p>Plan a collection of practical engineering calculation tools.</p>
-        </div>
+          <div class="card">
+            <h3>📐 Engineering Calculators</h3>
+            <p>Calculate concrete quantities and explore practical engineering tools.</p>
+          </div>
 
-        <div class="card">
-          <h3>📚 Learning Center</h3>
-          <p>Build your knowledge from beginner to advanced engineering.</p>
-        </div>
+          <div class="card">
+            <h3>📚 Learning Center</h3>
+            <p>Build your knowledge from beginner to advanced engineering.</p>
+          </div>
 
-        <div class="card">
-          <h3>📄 Technical Reports</h3>
-          <p>Prepare structured engineering notes and report drafts.</p>
-        </div>
-      </div>
-
-      <h2 class="section-title">Engineering AI Assistant</h2>
-
-      <div class="chat">
-        <div class="chat-header">KENNYVORA AI · Demo Interface</div>
-
-        <div class="messages" id="messages">
-          <div class="message">
-            Welcome! I am the KENNYVORA Civil Engineering Assistant.
-
-            Ask me a question or try the demo.
+          <div class="card" id="reports">
+            <h3>📄 Technical Reports</h3>
+            <p>Prepare structured engineering notes and report drafts.</p>
           </div>
         </div>
+      </section>
 
-        <div class="input-area">
-          <input
-            id="question"
-            type="text"
-            placeholder="Ask a civil engineering question..."
-          >
-          <button onclick="sendMessage()">Send</button>
+      <!-- CONCRETE CALCULATOR -->
+
+      <section id="calculators">
+        <h2 class="section-title">Concrete Volume Calculator</h2>
+
+        <div class="calculator">
+          <div class="calculator-header">
+            🧱 Concrete Quantity Estimator
+          </div>
+
+          <div class="calculator-body">
+            <p class="calc-description">
+              Enter the dimensions of a rectangular concrete element.
+              All dimensions must be in meters.
+            </p>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="length">Length (m)</label>
+                <input id="length" type="number" min="0" step="any"
+                       placeholder="Example: 5">
+              </div>
+
+              <div class="form-group">
+                <label for="width">Width (m)</label>
+                <input id="width" type="number" min="0" step="any"
+                       placeholder="Example: 3">
+              </div>
+
+              <div class="form-group">
+                <label for="depth">Thickness / Height (m)</label>
+                <input id="depth" type="number" min="0" step="any"
+                       placeholder="Example: 0.15">
+              </div>
+
+              <div class="form-group">
+                <label for="wastage">Wastage (%)</label>
+                <input id="wastage" type="number" min="0" max="100"
+                       step="any" value="5">
+              </div>
+
+            </div>
+
+            <div class="calc-buttons">
+              <button onclick="calculateConcrete()">Calculate Volume</button>
+              <button class="reset-button" onclick="resetConcrete()">Reset</button>
+            </div>
+
+            <p class="error" id="calcError"></p>
+
+            <div class="result" id="calcResult">
+              <h3>Calculation Result</h3>
+
+              <p>Concrete volume without wastage:</p>
+              <div class="result-value" id="baseVolume">0 m³</div>
+
+              <p>Estimated volume including wastage:</p>
+              <div class="result-value" id="finalVolume">0 m³</div>
+
+              <p id="wastageDetails"></p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- AI CHAT DEMO -->
+
+      <section id="assistant">
+        <h2 class="section-title">Engineering AI Assistant</h2>
+
+        <div class="chat">
+          <div class="chat-header">
+            KENNYVORA AI · Demo Interface
+          </div>
+
+          <div class="messages" id="messages">
+            <div class="message">
+Welcome! I am the KENNYVORA Civil Engineering Assistant.
+
+Ask me a question or try the demo.
+            </div>
+          </div>
+
+          <div class="input-area">
+            <input
+              id="question"
+              type="text"
+              placeholder="Ask a civil engineering question..."
+            >
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </section>
 
       <div class="footer">
-        Prototype version 0.1 · AI responses are not connected yet.
+        Prototype version 0.2 · AI responses are not connected yet.
+        Concrete calculator provides preliminary quantity estimates only.
         Safety-critical engineering decisions require qualified
         professional verification.
       </div>
-    </main>
 
+    </main>
   </div>
 
   <script>
+    // CONCRETE VOLUME CALCULATOR
+
+    function calculateConcrete() {
+      const length = Number(document.getElementById("length").value);
+      const width = Number(document.getElementById("width").value);
+      const depth = Number(document.getElementById("depth").value);
+      const wastage = Number(document.getElementById("wastage").value);
+
+      const error = document.getElementById("calcError");
+      const result = document.getElementById("calcResult");
+
+      error.style.display = "none";
+      result.style.display = "none";
+
+      if (
+        document.getElementById("length").value === "" ||
+        document.getElementById("width").value === "" ||
+        document.getElementById("depth").value === "" ||
+        document.getElementById("wastage").value === ""
+      ) {
+        error.textContent = "Please fill in all fields.";
+        error.style.display = "block";
+        return;
+      }
+
+      if (
+        !Number.isFinite(length) ||
+        !Number.isFinite(width) ||
+        !Number.isFinite(depth) ||
+        !Number.isFinite(wastage) ||
+        length <= 0 ||
+        width <= 0 ||
+        depth <= 0 ||
+        wastage < 0 ||
+        wastage > 100
+      ) {
+        error.textContent =
+          "Enter positive dimensions and wastage between 0 and 100%.";
+        error.style.display = "block";
+        return;
+      }
+
+      const volume = length * width * depth;
+      const extra = volume * (wastage / 100);
+      const total = volume + extra;
+
+      document.getElementById("baseVolume").textContent =
+        volume.toFixed(3) + " m³";
+
+      document.getElementById("finalVolume").textContent =
+        total.toFixed(3) + " m³";
+
+      document.getElementById("wastageDetails").textContent =
+        "Wastage allowance: " + extra.toFixed(3) +
+        " m³ (" + wastage + "%).";
+
+      result.style.display = "block";
+    }
+
+    function resetConcrete() {
+      document.getElementById("length").value = "";
+      document.getElementById("width").value = "";
+      document.getElementById("depth").value = "";
+      document.getElementById("wastage").value = "5";
+
+      document.getElementById("calcResult").style.display = "none";
+      document.getElementById("calcError").style.display = "none";
+    }
+
+    // AI CHAT DEMO
+
     function sendMessage() {
       const input = document.getElementById("question");
       const messages = document.getElementById("messages");
@@ -347,6 +573,7 @@
 
       const reply = document.createElement("div");
       reply.className = "message";
+
       reply.textContent =
         "Your question has been received by the prototype. " +
         "The real KENNYVORA AI engine will be connected in a later step.";
