@@ -3,44 +3,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KENNYVORA Engineering AI</title>
 
 <style>
-:root {
-  --bg:#07111f; --panel:#101d30; --panel2:#14243a;
-  --border:#263952; --text:#edf4ff; --muted:#9aacc4;
-  --blue:#3984ff; --green:#22c58b; --orange:#ffb454;
+:root{
+--bg:#07111f;--p:#101d30;--p2:#14243a;--b:#263952;
+--t:#edf4ff;--m:#9aacc4;--blue:#3984ff;
+--green:#22c58b;--orange:#ffb454
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{padding:17px 22px;background:#091525;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.logo{font-size:23px;font-weight:bold}.logo span{color:var(--blue)}
+body{margin:0;background:var(--bg);color:var(--t);font-family:Arial,sans-serif}
+header{padding:17px 22px;background:#091525;border-bottom:1px solid var(--b);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:var(--blue)}
 .status{color:var(--green)}
 .layout{display:flex;min-height:90vh}
-nav{width:205px;padding:16px;background:#0a1728;border-right:1px solid var(--border);flex-shrink:0}
-nav a{display:block;padding:11px;color:var(--muted);text-decoration:none;border-radius:8px}
-nav a:hover{background:var(--panel2);color:white}
+nav{width:205px;padding:16px;background:#0a1728;border-right:1px solid var(--b);flex-shrink:0}
+nav a{display:block;padding:11px;color:var(--m);text-decoration:none;border-radius:8px}
+nav a:hover{background:var(--p2);color:white}
 main{padding:22px;width:100%;max-width:1450px;margin:auto}
 h1{margin:0 0 8px}
-.sub{color:var(--muted);margin-bottom:20px}
+.sub{color:var(--m);margin-bottom:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:17px}
-.card p{color:var(--muted);line-height:1.5}
-label{display:block;font-size:13px;color:var(--muted)}
-input,select{width:100%;padding:11px;margin:6px 0 12px;background:#091525;color:white;border:1px solid var(--border);border-radius:8px;font-size:16px}
+.card{background:var(--p);border:1px solid var(--b);border-radius:12px;padding:17px}
+.card p{color:var(--m);line-height:1.5}
+label{display:block;font-size:13px;color:var(--m)}
+input,select{width:100%;padding:11px;margin:6px 0 12px;background:#091525;color:white;border:1px solid var(--b);border-radius:8px;font-size:16px}
 button{border:0;border-radius:8px;padding:10px 13px;margin:3px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}
 .secondary{background:#263952}
-.result{margin-top:12px;background:#091525;border:1px solid var(--border);border-radius:8px;padding:12px;line-height:1.6;overflow-wrap:anywhere}
+.result{margin-top:12px;background:#091525;border:1px solid var(--b);border-radius:8px;padding:12px;line-height:1.6;overflow-wrap:anywhere}
 .result strong{color:var(--green)}
+.error{color:#ff7b7b;font-weight:bold}
+.success{color:var(--green)}
+.steps{font-size:12px;color:var(--m);margin-top:8px;line-height:1.5}
 .formula,.note{font-size:12px;color:var(--orange);line-height:1.5;margin-top:9px}
 .search{max-width:600px}
 .category{display:inline-block;background:#1b3150;color:#bcd3ff;padding:4px 8px;border-radius:20px;font-size:11px}
 .hidden{display:none!important}
 .chatbox{padding:12px;background:#091525;max-height:250px;overflow:auto;border-radius:8px}
-.msg{background:var(--panel2);padding:9px;margin:7px 0;border-radius:8px}
-.history{padding:10px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);overflow-wrap:anywhere}
-footer{text-align:center;color:var(--muted);padding:22px;border-top:1px solid var(--border);font-size:12px}
+.msg{background:var(--p2);padding:9px;margin:7px 0;border-radius:8px}
+.history{padding:10px;border-bottom:1px solid var(--b);font-size:13px;color:var(--m);overflow-wrap:anywhere}
+footer{text-align:center;color:var(--m);padding:22px;border-top:1px solid var(--b);font-size:12px}
 @media(max-width:700px){
 .layout{display:block}
 nav{width:100%;display:flex;overflow-x:auto;padding:8px}
@@ -54,10 +58,11 @@ main{padding:12px}
 
 <header>
 <div class="logo">KENNY<span>VORA</span></div>
-<div class="status">● Engineering Prototype</div>
+<div class="status">● Engineering Prototype · v1.2</div>
 </header>
 
 <div class="layout">
+
 <nav>
 <a href="#dashboard">Dashboard</a>
 <a href="#ai">Engineering AI</a>
@@ -79,7 +84,7 @@ main{padding:12px}
 
 <div class="card">
 <h3>Engineering Calculators</h3>
-<p>20 calculators for civil engineering estimates.</p>
+<p>20 calculators with input validation and calculation checks.</p>
 </div>
 
 <div class="card">
@@ -91,11 +96,14 @@ main{padding:12px}
 
 <section id="ai">
 <h2>KENNYVORA Engineering AI</h2>
+
 <div class="card">
 <p>Prototype chat only.</p>
+
 <div class="chatbox" id="chatbox">
 <div class="msg">KENNYVORA: Welcome. AI backend is not connected yet.</div>
 </div>
+
 <input id="chatinput" placeholder="Ask an engineering question">
 <button onclick="sendChat()">Send</button>
 </div>
@@ -109,6 +117,7 @@ main{padding:12px}
 
 <section id="history">
 <h2>Recent Calculations</h2>
+
 <div class="card">
 <button class="secondary" onclick="clearHistory()">Clear history</button>
 <div id="historyList">
@@ -120,39 +129,77 @@ main{padding:12px}
 </main>
 </div>
 
-<footer>
-KENNYVORA Prototype v1.1 · Estimates only. Verify before construction.
-</footer>
+<footer>KENNYVORA Prototype v1.2 · Estimates only. Verify before construction.</footer>
 
 <script>
+
 const C=[
+
 ["Concrete Volume","Concrete","Volume = L × W × thickness",
 [["L","Length (m)",5],["W","Width (m)",3],["T","Thickness (m)",.15],["w","Wastage (%)",5]],
-v=>{let x=v.L*v.W*v.T;return `Base volume: ${x.toFixed(3)} m³<br>Total with wastage: <strong>${(x*(1+v.w/100)).toFixed(3)} m³</strong>`}],
+v=>{
+let x=v.L*v.W*v.T;
+return `Base volume: ${x.toFixed(3)} m³<br>
+Total with wastage: <strong>${(x*(1+v.w/100)).toFixed(3)} m³</strong>`
+}],
 
 ["Brick Quantity","Materials","Wall volume ÷ brick module volume",
 [["L","Wall length (m)",5],["H","Wall height (m)",3],["T","Wall thickness (m)",.23],["bl","Brick length (cm)",19],["bw","Brick width (cm)",9],["bh","Brick height (cm)",9],["j","Mortar joint (mm)",10],["w","Wastage (%)",5]],
-v=>{let wall=v.L*v.H*v.T,b=(v.bl+v.j/10)/100*(v.bw+v.j/10)/100*(v.bh+v.j/10)/100,n=wall/b;return `Wall volume: ${wall.toFixed(3)} m³<br>Bricks before wastage: ${Math.ceil(n)}<br>Total bricks: <strong>${Math.ceil(n*(1+v.w/100)).toLocaleString()}</strong>`}],
+v=>{
+let wall=v.L*v.H*v.T;
+let b=(v.bl+v.j/10)/100*(v.bw+v.j/10)/100*(v.bh+v.j/10)/100;
+let n=wall/b;
+return `Wall volume: ${wall.toFixed(3)} m³<br>
+Bricks before wastage: ${Math.ceil(n)}<br>
+Total bricks: <strong>${Math.ceil(n*(1+v.w/100)).toLocaleString()}</strong>`
+}],
 
 ["Steel Bar Weight","Steel","Weight kg/m = diameter² ÷ 162",
 [["d","Diameter (mm)",12],["L","Length per bar (m)",12],["n","Number of bars",10],["w","Wastage (%)",5]],
-v=>{let kgm=v.d*v.d/162,b=kgm*v.L*v.n,t=b*(1+v.w/100);return `Weight/m: ${kgm.toFixed(3)} kg/m<br>Base weight: ${b.toFixed(2)} kg<br>Total weight: <strong>${t.toFixed(2)} kg</strong><br>Tonnes: ${(t/1000).toFixed(4)}`}],
+v=>{
+let kgm=v.d*v.d/162;
+let b=kgm*v.L*v.n;
+let t=b*(1+v.w/100);
+return `Weight/m: ${kgm.toFixed(3)} kg/m<br>
+Base weight: ${b.toFixed(2)} kg<br>
+Total weight: <strong>${t.toFixed(2)} kg</strong><br>
+Tonnes: ${(t/1000).toFixed(4)}`
+}],
 
 ["Cement Sand Aggregate","Materials","Dry volume ≈ concrete volume × 1.54",
 [["V","Concrete volume (m³)",1],["c","Cement ratio",1],["s","Sand ratio",2],["a","Aggregate ratio",4]],
-v=>{let d=v.V*1.54,s=v.c+v.s+v.a;return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>Sand: ${(d*v.s/s).toFixed(3)} m³<br>Aggregate: ${(d*v.a/s).toFixed(3)} m³`}],
+v=>{
+let d=v.V*1.54;
+let s=v.c+v.s+v.a;
+return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>
+Sand: ${(d*v.s/s).toFixed(3)} m³<br>
+Aggregate: ${(d*v.a/s).toFixed(3)} m³`
+}],
 
 ["Plaster Material","Materials","Mortar volume = area × thickness",
 [["A","Area (m²)",100],["t","Thickness (mm)",12],["c","Cement ratio",1],["s","Sand ratio",4]],
-v=>{let d=v.A*v.t/1000*1.33,s=v.c+v.s;return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>Sand: ${(d*v.s/s).toFixed(3)} m³`}],
+v=>{
+let d=v.A*v.t/1000*1.33;
+let s=v.c+v.s;
+return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>
+Sand: ${(d*v.s/s).toFixed(3)} m³`
+}],
 
 ["Tile Quantity","Finishes","Tile count = floor area ÷ tile area",
 [["A","Floor area (m²)",20],["L","Tile length (cm)",60],["W","Tile width (cm)",60],["w","Wastage (%)",10]],
-v=>{let n=v.A/(v.L/100*v.W/100);return `Tiles before waste: ${Math.ceil(n)}<br>Total tiles: <strong>${Math.ceil(n*(1+v.w/100))}</strong>`}],
+v=>{
+let n=v.A/(v.L/100*v.W/100);
+return `Tiles before waste: ${Math.ceil(n)}<br>
+Total tiles: <strong>${Math.ceil(n*(1+v.w/100))}</strong>`
+}],
 
 ["Paint Quantity","Finishes","Paint = area ÷ coverage × coats",
 [["A","Area (m²)",100],["r","Coverage (m²/L)",10],["c","Coats",2],["w","Wastage (%)",10]],
-v=>{let x=v.A/v.r*v.c;return `Before waste: ${x.toFixed(2)} L<br>Total paint: <strong>${(x*(1+v.w/100)).toFixed(2)} L</strong>`}],
+v=>{
+let x=v.A/v.r*v.c;
+return `Before waste: ${x.toFixed(2)} L<br>
+Total paint: <strong>${(x*(1+v.w/100)).toFixed(2)} L</strong>`
+}],
 
 ["Excavation Volume","Earthwork","L × W × depth",
 [["L","Length (m)",10],["W","Width (m)",2],["D","Depth (m)",1.5]],
@@ -164,11 +211,21 @@ v=>`Backfill: <strong>${Math.max(0,v.L*v.W*v.D-v.S).toFixed(3)} m³</strong>`],
 
 ["Concrete Mix Ratio","Concrete","Dry volume ≈ wet volume × 1.54",
 [["V","Concrete volume (m³)",1],["c","Cement ratio",1],["s","Sand ratio",2],["a","Aggregate ratio",4]],
-v=>{let d=v.V*1.54,s=v.c+v.s+v.a;return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>Sand: ${(d*v.s/s).toFixed(3)} m³<br>Aggregate: ${(d*v.a/s).toFixed(3)} m³`}],
+v=>{
+let d=v.V*1.54;
+let s=v.c+v.s+v.a;
+return `Cement: <strong>${(d*v.c/s/.0347).toFixed(2)} bags</strong><br>
+Sand: ${(d*v.s/s).toFixed(3)} m³<br>
+Aggregate: ${(d*v.a/s).toFixed(3)} m³`
+}],
 
 ["Slab Concrete","Concrete","L × W × thickness",
 [["L","Length (m)",5],["W","Width (m)",4],["T","Thickness (m)",.15],["w","Wastage (%)",5]],
-v=>{let x=v.L*v.W*v.T;return `Slab: ${x.toFixed(3)} m³<br>With wastage: <strong>${(x*(1+v.w/100)).toFixed(3)} m³</strong>`}],
+v=>{
+let x=v.L*v.W*v.T;
+return `Slab: ${x.toFixed(3)} m³<br>
+With wastage: <strong>${(x*(1+v.w/100)).toFixed(3)} m³</strong>`
+}],
 
 ["Beam Concrete","Concrete","L × breadth × depth × count",
 [["L","Length (m)",5],["B","Breadth (m)",.23],["D","Depth (m)",.45],["n","Beam count",1]],
@@ -180,7 +237,15 @@ v=>`Column volume: <strong>${(v.n*v.H*v.B*v.D).toFixed(3)} m³</strong>`],
 
 ["Staircase Concrete","Concrete","Approximate waist slab + steps",
 [["n","Steps",12],["R","Rise (m)",.15],["T","Tread (m)",.28],["W","Width (m)",1.2],["D","Waist thickness (m)",.15]],
-v=>{let r=v.n*v.R,t=v.n*v.T,w=Math.sqrt(r*r+t*t)*v.W*v.D,s=.5*v.n*v.R*v.T*v.W;return `Waist slab: ${w.toFixed(3)} m³<br>Steps: ${s.toFixed(3)} m³<br>Total: <strong>${(w+s).toFixed(3)} m³</strong>`}],
+v=>{
+let r=v.n*v.R;
+let t=v.n*v.T;
+let w=Math.sqrt(r*r+t*t)*v.W*v.D;
+let s=.5*v.n*v.R*v.T*v.W;
+return `Waist slab: ${w.toFixed(3)} m³<br>
+Steps: ${s.toFixed(3)} m³<br>
+Total: <strong>${(w+s).toFixed(3)} m³</strong>`
+}],
 
 ["Footing Concrete","Concrete","Count × L × W × thickness",
 [["n","Footings",4],["L","Length (m)",1.5],["W","Width (m)",1.5],["T","Thickness (m)",.45]],
@@ -188,93 +253,316 @@ v=>`Footing volume: <strong>${(v.n*v.L*v.W*v.T).toFixed(3)} m³</strong>`],
 
 ["Steel Cutting Length","Steel","Stirrup perimeter inside cover + hooks",
 [["L","Stirrup length (mm)",300],["W","Stirrup width (mm)",200],["C","Cover (mm)",25],["H","Hook length each (mm)",100],["n","Stirrups",20]],
-v=>{let x=2*(v.L-2*v.C)+2*(v.W-2*v.C)+2*v.H;return `Each stirrup: <strong>${x.toFixed(0)} mm</strong><br>Total length: ${(x*v.n/1000).toFixed(2)} m`}],
+v=>{
+let x=2*(v.L-2*v.C)+2*(v.W-2*v.C)+2*v.H;
+return `Each stirrup: <strong>${x.toFixed(0)} mm</strong><br>
+Total length: ${(x*v.n/1000).toFixed(2)} m`
+}],
 
 ["Rebar Quantity Estimator","Steel","Approximate bar count by spacing",
 [["D","Width (m)",5],["L","Bar length (m)",5],["S","Spacing (mm)",150],["d","Diameter (mm)",12],["w","Wastage (%)",5]],
-v=>{let n=Math.floor(v.D*1000/v.S)+1,l=n*v.L,k=v.d*v.d/162*l*(1+v.w/100);return `Bars: <strong>${n}</strong><br>Length: ${l.toFixed(2)} m<br>Steel weight: <strong>${k.toFixed(2)} kg</strong>`}],
+v=>{
+let n=Math.floor(v.D*1000/v.S)+1;
+let l=n*v.L;
+let k=v.d*v.d/162*l*(1+v.w/100);
+return `Bars: <strong>${n}</strong><br>
+Length: ${l.toFixed(2)} m<br>
+Steel weight: <strong>${k.toFixed(2)} kg</strong>`
+}],
 
 ["Construction Cost","Cost","Quantity × rate + allowance",
 [["Q","Quantity",100],["R","Rate per unit (PKR)",2500],["w","Allowance (%)",5]],
-v=>{let x=v.Q*v.R;return `Base: PKR ${x.toLocaleString()}<br>Total estimate: <strong>PKR ${(x*(1+v.w/100)).toLocaleString()}</strong>`}],
+v=>{
+let x=v.Q*v.R;
+return `Base: PKR ${x.toLocaleString()}<br>
+Total estimate: <strong>PKR ${(x*(1+v.w/100)).toLocaleString()}</strong>`
+}],
 
 ["Wall Area","Materials","Length × height − openings",
 [["L","Length (m)",5],["H","Height (m)",3],["O","Openings (m²)",2]],
-v=>`Gross: ${(v.L*v.H).toFixed(2)} m²<br>Net wall area: <strong>${Math.max(0,v.L*v.H-v.O).toFixed(2)} m²</strong>`],
+v=>{
+return `Gross: ${(v.L*v.H).toFixed(2)} m²<br>
+Net wall area: <strong>${Math.max(0,v.L*v.H-v.O).toFixed(2)} m²</strong>`
+}],
 
 ["Unit Converter","Utilities","Standard conversion factors",
 [["V","Value",1]],
 v=>`Choose a conversion below.`]
+
 ];
 
 function renderTools(){
-const grid=document.getElementById("toolsGrid");grid.innerHTML="";
+const grid=document.getElementById("toolsGrid");
+grid.innerHTML="";
+
 C.forEach((c,i)=>{
 let card=document.createElement("div");
 card.className="card calculator";
 card.dataset.search=(c[0]+" "+c[1]+" "+c[2]).toLowerCase();
 card.id="tool"+i;
+
 let h=`<span class="category">${c[1]}</span><h3>${c[0]}</h3><p>${c[2]}</p>`;
-c[3].forEach(f=>h+=`<label>${f[1]}</label><input type="number" min="0" step="any" id="f${i}_${f[0]}" value="${f[2]}">`);
-if(c[0]==="Unit Converter")h+=`<label>Conversion</label><select id="f${i}_unit"><option value="mft">Meters → feet</option><option value="m2ft">m² → ft²</option><option value="m3ft">m³ → ft³</option><option value="kgton">kg → tonnes</option><option value="mmtom">mm → m</option><option value="ftm">feet → meters</option></select>`;
-h+=`<button onclick="runCalc(${i})">Calculate</button><button class="secondary" onclick="copyCalc(${i})">Copy Result</button><div class="result" id="res${i}">Enter values and calculate.</div><div class="formula">Formula: ${c[2]}</div>`;
-card.innerHTML=h;grid.appendChild(card);
+
+c[3].forEach(f=>{
+h+=`<label>${f[1]}</label>
+<input type="number" min="0" step="any" id="f${i}_${f[0]}" value="${f[2]}">`;
+});
+
+if(c[0]==="Unit Converter"){
+h+=`<label>Conversion</label>
+<select id="f${i}_unit">
+<option value="mft">Meters → feet</option>
+<option value="m2ft">m² → ft²</option>
+<option value="m3ft">m³ → ft³</option>
+<option value="kgton">kg → tonnes</option>
+<option value="mmtom">mm → m</option>
+<option value="ftm">feet → meters</option>
+</select>`;
+}
+
+h+=`<button onclick="runCalc(${i})">Calculate</button>
+<button class="secondary" onclick="copyCalc(${i})">Copy Result</button>
+<div class="result" id="res${i}">Enter values and calculate.</div>
+<div class="formula">Formula: ${c[2]}</div>`;
+
+card.innerHTML=h;
+grid.appendChild(card);
 });
 }
 
 function runCalc(i){
-let c=C[i],v={};
-c[3].forEach(f=>v[f[0]]=Number(document.getElementById(`f${i}_${f[0]}`).value));
-let res=document.getElementById("res"+i);
-if(Object.values(v).some(x=>!Number.isFinite(x)||x<0)){
-res.textContent="Please enter valid non-negative numbers.";return;
+
+const c=C[i],v={};
+c[3].forEach(f=>{
+v[f[0]]=Number(document.getElementById(`f${i}_${f[0]}`).value);
+});
+
+const res=document.getElementById("res"+i);
+
+// Input validation
+for(const f of c[3]){
+const input=document.getElementById(`f${i}_${f[0]}`);
+
+if(input.value.trim()==="" || !Number.isFinite(v[f[0]]) || v[f[0]]<0){
+res.innerHTML='<span class="error">Invalid input: enter a valid non-negative number in every field.</span>';
+input.focus();
+return;
 }
+}
+
+// Zero-value checks
+for(const f of c[3]){
+const label=f[1];
+
+const allowZero=
+label.includes("Wastage") ||
+label.includes("Openings") ||
+label.includes("Allowance") ||
+label.includes("Cover") ||
+label.includes("Hook length") ||
+label==="Structure volume (m³)" ||
+label==="Rate per unit (PKR)";
+
+if(!allowZero && v[f[0]]===0){
+res.innerHTML=`<span class="error">${label} must be greater than zero.</span>`;
+document.getElementById(`f${i}_${f[0]}`).focus();
+return;
+}
+}
+
+// Mix ratio validation
+if(c[0]==="Cement Sand Aggregate" ||
+c[0]==="Concrete Mix Ratio" ||
+c[0]==="Plaster Material"){
+
+const ratioKeys=c[0]==="Plaster Material"?["c","s"]:["c","s","a"];
+
+if(ratioKeys.some(k=>v[k]<=0)){
+res.innerHTML='<span class="error">Mix ratios must all be greater than zero.</span>';
+return;
+}
+}
+
+// Backfill validation
+if(c[0]==="Backfill Quantity" && v.S>v.L*v.W*v.D){
+res.innerHTML='<span class="error">Structure volume cannot exceed excavation volume.</span>';
+return;
+}
+
+// Wall area validation
+if(c[0]==="Wall Area" && v.O>v.L*v.H){
+res.innerHTML='<span class="error">Openings area cannot exceed gross wall area.</span>';
+return;
+}
+
+// Stirrup cover validation
+if(c[0]==="Steel Cutting Length" && (v.L<=2*v.C || v.W<=2*v.C)){
+res.innerHTML='<span class="error">Cover must be less than half of stirrup dimensions.</span>';
+return;
+}
+
+// Waste allowance validation
+if((c[0]==="Concrete Volume" ||
+c[0]==="Slab Concrete" ||
+c[0]==="Tile Quantity" ||
+c[0]==="Paint Quantity" ||
+c[0]==="Rebar Quantity Estimator" ||
+c[0]==="Construction Cost") && v.w>100){
+
+res.innerHTML='<span class="error">Wastage/allowance cannot exceed 100% in this estimator.</span>';
+return;
+}
+
+try{
+
+let output;
+
 if(c[0]==="Unit Converter"){
-let unit=document.getElementById(`f${i}_unit`).value;
-let map={mft:[3.28084,"ft"],m2ft:[10.7639,"ft²"],m3ft:[35.3147,"ft³"],kgton:[.001,"tonnes"],mmtom:[.001,"m"],ftm:[1/3.28084,"m"]};
-res.innerHTML=`Converted value: <strong>${(v.V*map[unit][0]).toLocaleString(undefined,{maximumFractionDigits:5})} ${map[unit][1]}</strong>`;
+
+const unit=document.getElementById(`f${i}_unit`).value;
+
+const map={
+mft:[3.28084,"ft"],
+m2ft:[10.7639,"ft²"],
+m3ft:[35.3147,"ft³"],
+kgton:[.001,"tonnes"],
+mmtom:[.001,"m"],
+ftm:[1/3.28084,"m"]
+};
+
+output=`Converted value: <strong>${(v.V*map[unit][0]).toLocaleString(undefined,{maximumFractionDigits:5})} ${map[unit][1]}</strong>`;
+
 }else{
-try{res.innerHTML=c[4](v)}catch(e){res.textContent="Unable to calculate. Check values."}
+output=c[4](v);
 }
+
+if(!output || /NaN|Infinity|undefined/.test(output)){
+res.innerHTML='<span class="error">Calculation produced an invalid result. Check all inputs.</span>';
+return;
+}
+
+res.innerHTML=`
+<div class="success"><strong>Calculation result</strong></div>
+${output}
+<div class="steps">
+Input check: passed · Formula: ${c[2]}<br>
+Values shown are estimates; confirm units, assumptions, and applicable codes.
+</div>`;
+
 addHistory(c[0],res.innerText);
+
+}catch(e){
+res.innerHTML='<span class="error">Could not calculate. Please check the input values and try again.</span>';
+}
+
 }
 
 function copyCalc(i){
+
 let text=C[i][0]+"\n"+document.getElementById("res"+i).innerText;
-if(text.includes("Enter values")){alert("Calculate first.");return}
-if(navigator.clipboard&&navigator.clipboard.writeText)
-navigator.clipboard.writeText(text).then(()=>alert("Copied!")).catch(()=>copyFallback(text));
-else copyFallback(text);
+
+if(text.includes("Enter values") ||
+text.includes("Invalid input") ||
+text.includes("must be greater") ||
+text.includes("Could not calculate")){
+
+alert("Run a valid calculation first.");
+return;
 }
+
+if(navigator.clipboard && navigator.clipboard.writeText){
+
+navigator.clipboard.writeText(text)
+.then(()=>alert("Copied!"))
+.catch(()=>copyFallback(text));
+
+}else{
+copyFallback(text);
+}
+}
+
 function copyFallback(text){
-let x=document.createElement("textarea");x.value=text;document.body.appendChild(x);x.select();
-try{document.execCommand("copy");alert("Copied!")}catch(e){alert("Please copy manually.")}
+
+let x=document.createElement("textarea");
+x.value=text;
+document.body.appendChild(x);
+x.select();
+
+try{
+document.execCommand("copy");
+alert("Copied!");
+}catch(e){
+alert("Please copy manually.");
+}
+
 x.remove();
 }
+
 function addHistory(name,result){
+
 let list=document.getElementById("historyList");
-if(list.querySelector(".note"))list.innerHTML="";
-let e=document.createElement("div");e.className="history";
+
+if(list.querySelector(".note")){
+list.innerHTML="";
+}
+
+let e=document.createElement("div");
+e.className="history";
 e.textContent=new Date().toLocaleTimeString()+" — "+name+": "+result;
-list.prepend(e);while(list.children.length>10)list.lastChild.remove();
+
+list.prepend(e);
+
+while(list.children.length>10){
+list.lastChild.remove();
 }
+}
+
 function clearHistory(){
-document.getElementById("historyList").innerHTML='<p class="note">History cleared. Calculations will appear here.</p>';
+
+document.getElementById("historyList").innerHTML=
+'<p class="note">History cleared. Calculations will appear here.</p>';
+
 }
+
 function filterTools(){
+
 let q=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".calculator").forEach(x=>x.classList.toggle("hidden",!x.dataset.search.includes(q)));
+
+document.querySelectorAll(".calculator").forEach(x=>{
+x.classList.toggle("hidden",!x.dataset.search.includes(q));
+});
+
 }
+
 function sendChat(){
-let input=document.getElementById("chatinput"),box=document.getElementById("chatbox"),t=input.value.trim();
+
+let input=document.getElementById("chatinput");
+let box=document.getElementById("chatbox");
+let t=input.value.trim();
+
 if(!t)return;
-let a=document.createElement("div");a.className="msg";a.textContent="You: "+t;box.appendChild(a);
-let b=document.createElement("div");b.className="msg";
+
+let a=document.createElement("div");
+a.className="msg";
+a.textContent="You: "+t;
+box.appendChild(a);
+
+let b=document.createElement("div");
+b.className="msg";
 b.textContent="KENNYVORA: This is a demo. The real AI backend is not connected yet.";
-box.appendChild(b);input.value="";box.scrollTop=box.scrollHeight;
+box.appendChild(b);
+
+input.value="";
+box.scrollTop=box.scrollHeight;
+
 }
-document.getElementById("chatinput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat()});
+
+document.getElementById("chatinput").addEventListener("keydown",e=>{
+if(e.key==="Enter")sendChat();
+});
+
 renderTools();
+
 </script>
 </body>
 </html>
