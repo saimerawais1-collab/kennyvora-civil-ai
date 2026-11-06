@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KENNYVORA | Civil Engineering AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #e8edf7;
+      min-height: 100vh;
+    }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: #111a2b;
+      padding: 24px 16px;
+      border-right: 1px solid #253149;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #54d6a0;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #91a1bb;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .nav-title {
+      color: #8190a9;
+      font-size: 12px;
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      padding: 12px;
+      margin: 5px 0;
+      border-radius: 8px;
+      color: #c9d4e7;
+      cursor: pointer;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      background: #1d2c42;
+      color: #54d6a0;
+    }
+
+    .main {
+      flex: 1;
+      padding: 28px;
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .status {
+      color: #54d6a0;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      color: #9eacc3;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 15px;
+      margin: 24px 0 32px;
+    }
+
+    .card {
+      background: #131e31;
+      border: 1px solid #26354e;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #94a5bf;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin: 24px 0 14px;
+    }
+
+    .chat {
+      background: #131e31;
+      border: 1px solid #26354e;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 16px;
+      border-bottom: 1px solid #26354e;
+      font-weight: bold;
+    }
+
+    .messages {
+      padding: 20px;
+      min-height: 180px;
+    }
+
+    .message {
+      background: #1d2c42;
+      padding: 14px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .user-message {
+      background: #164d3c;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      border-top: 1px solid #26354e;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #35445d;
+      border-radius: 9px;
+      background: #0b1120;
+      color: white;
+      font-size: 15px;
+    }
+
+    button {
+      border: none;
+      border-radius: 9px;
+      padding: 14px 20px;
+      background: #54d6a0;
+      color: #07140e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3ec38b;
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #71819a;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .app {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #253149;
+      }
+
+      .subtitle {
+        margin-bottom: 12px;
+      }
+
+      .nav-title {
+        display: none;
+      }
+
+      .nav-item {
+        display: inline-block;
+        padding: 8px;
+        font-size: 13px;
+      }
+
+      .main {
+        padding: 18px;
+      }
+
+      .topbar {
+        margin-bottom: 22px;
+      }
+
+      .input-area {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="logo">KENNYVORA</div>
+      <div class="subtitle">Civil Engineering Intelligence</div>
+
+      <div class="nav-title">Workspace</div>
+      <div class="nav-item active">🏠 Dashboard</div>
+      <div class="nav-item">🤖 Engineering AI</div>
+      <div class="nav-item">📐 Calculators</div>
+      <div class="nav-item">📄 Engineering Reports</div>
+
+      <div class="nav-title">Engineering Domains</div>
+      <div class="nav-item">🏗️ Structural Engineering</div>
+      <div class="nav-item">🌍 Geotechnical</div>
+      <div class="nav-item">🧱 Materials</div>
+      <div class="nav-item">📏 Quantity Surveying</div>
+      <div class="nav-item">💧 Water Resources</div>
+      <div class="nav-item">🚧 Construction Management</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <strong>Engineering Workspace</strong>
+        <span class="status">● Prototype Online</span>
+      </div>
+
+      <h1>Welcome to KENNYVORA</h1>
+
+      <p class="intro">
+        Your AI-powered civil engineering workspace.
+        Learn concepts, explore engineering calculations,
+        and organize construction knowledge in one place.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>🤖 AI Engineering Assistant</h3>
+          <p>Ask civil engineering questions and explore technical concepts.</p>
+        </div>
+
+        <div class="card">
+          <h3>📐 Engineering Calculators</h3>
+          <p>Plan a collection of practical engineering calculation tools.</p>
+        </div>
+
+        <div class="card">
+          <h3>📚 Learning Center</h3>
+          <p>Build your knowledge from beginner to advanced engineering.</p>
+        </div>
+
+        <div class="card">
+          <h3>📄 Technical Reports</h3>
+          <p>Prepare structured engineering notes and report drafts.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Engineering AI Assistant</h2>
+
+      <div class="chat">
+        <div class="chat-header">KENNYVORA AI · Demo Interface</div>
+
+        <div class="messages" id="messages">
+          <div class="message">
+            Welcome! I am the KENNYVORA Civil Engineering Assistant.
+
+            Ask me a question or try the demo.
+          </div>
+        </div>
+
+        <div class="input-area">
+          <input
+            id="question"
+            type="text"
+            placeholder="Ask a civil engineering question..."
+          >
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+
+      <div class="footer">
+        Prototype version 0.1 · AI responses are not connected yet.
+        Safety-critical engineering decisions require qualified
+        professional verification.
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("question");
+      const messages = document.getElementById("messages");
+      const question = input.value.trim();
+
+      if (!question) return;
+
+      const userMessage = document.createElement("div");
+      userMessage.className = "message user-message";
+      userMessage.textContent = question;
+      messages.appendChild(userMessage);
+
+      const reply = document.createElement("div");
+      reply.className = "message";
+      reply.textContent =
+        "Your question has been received by the prototype. " +
+        "The real KENNYVORA AI engine will be connected in a later step.";
+
+      messages.appendChild(reply);
+
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    document.getElementById("question").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
